@@ -10,7 +10,8 @@ import javax.inject.Singleton
 class ChuckleNorrisRepository @Inject constructor(
     private val jokesRemoteDataSource: JokesRemoteDataSource
 ) {
-    fun getJokes(numberOfJokes: Int): Single<List<Joke>> {
-        return jokesRemoteDataSource.getJokes(numberOfJokes)
-    }
+    fun getJokes(numberOfJokes: Int): Single<List<Joke>> =
+        jokesRemoteDataSource.getJokes(numberOfJokes).map {
+            it.value
+        }
 }
