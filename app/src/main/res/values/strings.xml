@@ -7,4 +7,5 @@
     <string name="reload">reload</string>
     <string name="count">Count</string>
     <string name="chuck_norris_is_oh_so_strong_and_cool_chuck_norris_is_oh_so_strong_and_cool_chuck_norris_is_oh_so_strong_and_cool_chuck_norris_is_oh_so_strong_and_cool_chuck_norris_is_oh_so_strong_and_cool_chuck_norris_is_oh_so_strong_and_cool">Chuck Norris is oh so strong and cool. Chuck Norris is oh so strong and cool.Chuck Norris is oh so strong and cool.Chuck Norris is oh so strong and cool.Chuck Norris is oh so strong and cool.Chuck Norris is oh so strong and cool.</string>
+    <string name="valid_number_warning">Enter a valid number</string>
 </resources>

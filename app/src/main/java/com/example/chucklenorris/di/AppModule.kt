@@ -15,6 +15,7 @@ import javax.inject.Singleton
 
 @Module
 abstract class AppModule {
+
     @Binds
     abstract fun provideDaggerApplication(application: ChuckleNorrisApplication): Context
 

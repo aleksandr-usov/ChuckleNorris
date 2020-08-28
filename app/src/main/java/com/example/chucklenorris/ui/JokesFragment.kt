@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -31,8 +33,12 @@ class JokesFragment : Fragment() {
         ).get(SharedViewModel::class.java)
     }
 
-    private val reloadButton by lazy { requireView().findViewById<Button>(R.id.btn_get_jokes) }
-    private val numberOfJokesEditText by lazy { requireView().findViewById<EditText>(R.id.et_number_of_jokes) }
+    private val reloadButton by lazy {
+        requireView().findViewById<Button>(R.id.btn_get_jokes)
+    }
+    private val numberOfJokesEditText by lazy {
+        requireView().findViewById<EditText>(R.id.et_number_of_jokes)
+    }
 
     private lateinit var jokesRecyclerView: RecyclerView
 
@@ -77,6 +83,12 @@ class JokesFragment : Fragment() {
     private fun initLiveData() {
         sharedViewModel.currentJokes.observe(viewLifecycleOwner, Observer {
             jokesAdapter.setItems(it)
+        })
+
+        sharedViewModel.errors.observe(viewLifecycleOwner, Observer {
+            val result = it?.getData() ?: return@Observer
+
+            Toast.makeText(requireActivity(), result, LENGTH_SHORT).show()
         })
     }
 }

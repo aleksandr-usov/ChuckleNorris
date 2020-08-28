@@ -3,6 +3,7 @@ package com.example.chucklenorris.ui.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chucklenorris.R
 import com.example.chucklenorris.data.api.model.Joke
@@ -44,7 +45,7 @@ class JokesAdapter : RecyclerView.Adapter<JokesAdapter.JokeViewHolder>() {
         fun bind(item: Joke) {
             this.item = WeakReference(item)
 
-            textViewJoke.text = item.joke
+            textViewJoke.text = HtmlCompat.fromHtml(item.joke, HtmlCompat.FROM_HTML_MODE_COMPACT)
         }
     }
 }
